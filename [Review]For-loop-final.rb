@@ -2,17 +2,24 @@
 
 # 忘年会の参加者の人数 N と、数 M , K が与えられ、各参加者が書いた紙が与えられるので、それぞれの参加者の得点を計算して出力してください。
 
-line = gets.chomp.split(' ', 3)
-n = line[0].to_i
-m = line[1].to_i
-k = line[2]
+line = gets.chomp.sprit(" ", 3)
+N = line[0].to_i
+M = line[1].to_i
+K = line[2]
 
-arrays = n.times.map{gets.chomp.split(" ", m)}
+arrays = N.times.map{gets.chomp.sprit(" ", M)}
 
-h = 0
-arrays.each { |array|
-  if array.include?(k)
-    h += 1
-  end
-  puts h
+arr = []
+
+arrays.each { |array| arr <<  array[0].to_i, array[1].to_i }
+
+num = 0
+
+until num >= M do
+  ans = arr.count(K)
+  num += 1
+end
+
+ans.each { |ans|
+  puts ans.join(' ')
 }
